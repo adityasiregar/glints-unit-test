@@ -16,6 +16,7 @@ module.exports.connect = async () => {
     reconnectInterval: 1000
   };
 
+  await mongoose.connection.close();
   await mongoose.connect(uri, mongooseOpts);
 };
 
