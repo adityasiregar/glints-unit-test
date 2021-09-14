@@ -1,13 +1,19 @@
 const express = require("express");
 const todoRoutes = require("./routes/todo.routes");
+const authRoutes = require("./routes/auth.routes");
+
 const app = express();
 const mongodb = require("./mongodb/mongodb.connect");
+
+const db = require("./models");
+// db.sequelize.sync();
 
 mongodb.connect();
 
 app.use(express.json());
 
 app.use("/todos", todoRoutes);
+app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
   res.status(500).json({ message: error.message });

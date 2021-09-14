@@ -6,20 +6,31 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "node server.js",
-    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:rollback": "sequelize db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:seed:undo": "sequelize-cli db:seed:undo",
+    "db:seed:make": "sequelize-cli seed:generate --name"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^6.0.1",
     "mongoose": "^5.6.9",
-    "node-mocks-http": "^1.7.6"
+    "node-mocks-http": "^1.7.6",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "jest": "^27.1.0",
     "jest-sonar-reporter": "^2.0.0",
+    "sequelize-cli": "^6.2.0",
     "supertest": "^4.0.2"
   },
   "jest": {
