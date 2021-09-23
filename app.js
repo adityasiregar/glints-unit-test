@@ -2,6 +2,7 @@ const express = require("express");
 const todoRoutes = require("./routes/todo.routes");
 const authRoutes = require("./routes/auth.routes");
 const studentRoutes = require("./routes/student.routes");
+const helloRoutes = require('./routes/hello.routes')
 
 const app = express();
 const mongodb = require("./mongodb/mongodb.connect");
@@ -13,6 +14,7 @@ mongodb.connect();
 
 app.use(express.json());
 
+app.use("/", helloRoutes);
 app.use("/todos", todoRoutes);
 app.use("/auth", authRoutes);
 app.use("/student", studentRoutes);
