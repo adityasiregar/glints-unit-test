@@ -1,0 +1,17 @@
+'use strict';
+
+var path = require('path');
+
+require('dotenv').config({
+    path: require('find-config')('.env')
+});
+
+console.log( require('find-config')('.env'))
+console.log("heelo")
+// console.log(process.env)
+module.exports = {
+    'config': path.resolve('database/config', 'config.js'),
+    'models-path': path.resolve('models'),
+    'seeders-path': path.resolve('database/seeders'),
+    'migrations-path': path.resolve('database/migrations')
+}

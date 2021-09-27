@@ -14,7 +14,7 @@ mongodb.connect();
 
 app.use(express.json());
 
-app.use("/", helloRoutes);
+app.use("/sayang", helloRoutes);
 app.use("/todos", todoRoutes);
 app.use("/auth", authRoutes);
 app.use("/student", studentRoutes);
