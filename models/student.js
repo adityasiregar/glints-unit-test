@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       // this.belongsTo(models.StudentScore)   
       
-      this.hasMany(models.StudentScore)
+      this.hasMany(models.StudentScore, {
+        as: "scores"
+      })
     }
   };
   Student.init({

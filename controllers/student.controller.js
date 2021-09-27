@@ -10,15 +10,18 @@ const bcrypt = require('bcrypt');
 exports.studentScore= async (req, res, next) => {
   try {  
     Student.findAll({
+      raw:true,
       include:{ 
+        model: StudentScore,
         attributes: [
           'course_id',
-          'score',    
-        ],
-        model: StudentScore,
+          'score'
+        ],        
+        as: "scores",
         include: {
           model: Course,         
-          attributes: ['name']
+          attributes: ['name'],
+          as: "courses"
         }
       }
     }).then(data=> {

@@ -6,6 +6,7 @@ var privateKey = "helloworld123";
 const verify = async (req, res, next) => {
     const token = req.headers["auth"]    
     jwt.verify(token, privateKey, (err, decoded)=> {
+        req.userId = decoded.id;
 
         if(err) {
             return res.status(401).send({
@@ -28,6 +29,7 @@ const verifyAdmin = async (req, res, next) => {
 
     jwt.verify(token, privateKey, async (err, decoded)=> {  
         const id = decoded.id  
+        req.userId = decoded.id;
         const userRole = await UserRoles.findOne({
             where: {
                 user_id: id
